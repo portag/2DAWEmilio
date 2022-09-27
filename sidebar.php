@@ -13,7 +13,22 @@
 					<div class="collapse show" id="tema1">
 					<ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
 						<li><a href="/tema1/eje1.php" class="link-dark rounded">Ejercicio 1</a></li>
-						<li><a href="#" class="link-dark rounded">Ejercicio 2</a></li>
+						<li><a href="/tema1/eje2.php" class="link-dark rounded">Ejercicio 2</a></li>
+						<li><a href="/tema1/Introduccion_php_Emilio_Porta/Ej01.php" class="link-dark rounded">Ej 01</a></li>
+						<li><a href="/tema1/Introduccion_php_Emilio_Porta/Ej02.php" class="link-dark rounded">Ej 02</a></li>
+						<li><a href="/tema1/Introduccion_php_Emilio_Porta/Ej03.php" class="link-dark rounded">Ej 03</a></li>
+						<li><a href="/tema1/Introduccion_php_Emilio_Porta/Ej04.php" class="link-dark rounded">Ej 04</a></li>
+						<li><a href="/tema1/Introduccion_php_Emilio_Porta/Ej05.php" class="link-dark rounded">Ej 05</a></li>
+						<li><a href="/tema1/Introduccion_php_Emilio_Porta/Ej06.php" class="link-dark rounded">Ej 06</a></li>
+						<li><a href="/tema1/Introduccion_php_Emilio_Porta/Ej07.php" class="link-dark rounded">Ej 07</a></li>
+						<li><a href="/tema1/Introduccion_php_Emilio_Porta/Ej08.php" class="link-dark rounded">Ej 08</a></li>
+						<li><a href="/tema1/Introduccion_php_Emilio_Porta/Ej09.php" class="link-dark rounded">Ej 09</a></li>
+
+						<li><a href="/tema1/Introduccion_php_Emilio_Porta/Ej10.php" class="link-dark rounded">Ej 10</a></li>
+						<li><a href="/tema1/Introduccion_php_Emilio_Porta/Ej11.php" class="link-dark rounded">Ej 11</a></li>
+						<li><a href="/tema1/Introduccion_php_Emilio_Porta/Ej12.php" class="link-dark rounded">Ej 12</a></li>
+						<li><a href="/tema1/Introduccion_php_Emilio_Porta/Ej13.php" class="link-dark rounded">Ej 13</a></li>
+						<li><a href="/tema1/Introduccion_php_Emilio_Porta/Ej14.php" class="link-dark rounded">Ej 14</a></li>
 					</ul>
 					</div>
 				</li>

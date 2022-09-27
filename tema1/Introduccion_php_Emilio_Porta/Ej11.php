@@ -1,24 +1,19 @@
 <?php
 
-$array = array(
-    array(rand(1,10),rand(1,10),rand(1,10),rand(1,10),rand(1,10),rand(1,10),rand(1,10)),
-    array(rand(1,10),rand(1,10),rand(1,10),rand(1,10),rand(1,10),rand(1,10),rand(1,10)),
-    array(rand(1,10),rand(1,10),rand(1,10),rand(1,10),rand(1,10),rand(1,10),rand(1,10)),
-    array(rand(1,10),rand(1,10),rand(1,10),rand(1,10),rand(1,10),rand(1,10),rand(1,10)),
-    array(rand(1,10),rand(1,10),rand(1,10),rand(1,10),rand(1,10),rand(1,10),rand(1,10)),
-    array(rand(1,10),rand(1,10),rand(1,10),rand(1,10),rand(1,10),rand(1,10),rand(1,10)),
-    array(rand(1,10),rand(1,10),rand(1,10),rand(1,10),rand(1,10),rand(1,10),rand(1,10))
-);
+$array = array();
 
 $fila = array();
 $columna = array();
 $cont = 0;
+
 
 for($i = 0; $i < 7; $i++){
 
     for($j = 0; $j < 7; $j++){
         if($i == $j){
             $array[$i][$j] = 1;
+        }else{
+            $array[$i][$j] = rand(1,9); 
         }
     }
 

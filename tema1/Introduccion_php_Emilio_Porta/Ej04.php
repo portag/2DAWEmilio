@@ -2,9 +2,9 @@
 
 try {
 
-    $a = 0;
-    $b = 10;
-    $c = 5;
+    $a = 2;
+    $b = -2;
+    $c = -1;
     $operacion = pow($b,2) -4 * $a * $c;
 
     if($operacion < 0 || $a == 0){

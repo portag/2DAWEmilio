@@ -54,9 +54,6 @@ foreach($diccionario as $clave => $valor){
     
 }
 
-//DUDA
-
-
 
 
 ?>

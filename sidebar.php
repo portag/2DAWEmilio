@@ -14,21 +14,35 @@
 					<ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
 						<li><a href="/tema1/eje1.php" class="link-dark rounded">Ejercicio 1</a></li>
 						<li><a href="/tema1/eje2.php" class="link-dark rounded">Ejercicio 2</a></li>
-						<li><a href="/tema1/Introduccion_php_Emilio_Porta/Ej01.php" class="link-dark rounded">Ej 01</a></li>
-						<li><a href="/tema1/Introduccion_php_Emilio_Porta/Ej02.php" class="link-dark rounded">Ej 02</a></li>
-						<li><a href="/tema1/Introduccion_php_Emilio_Porta/Ej03.php" class="link-dark rounded">Ej 03</a></li>
-						<li><a href="/tema1/Introduccion_php_Emilio_Porta/Ej04.php" class="link-dark rounded">Ej 04</a></li>
-						<li><a href="/tema1/Introduccion_php_Emilio_Porta/Ej05.php" class="link-dark rounded">Ej 05</a></li>
-						<li><a href="/tema1/Introduccion_php_Emilio_Porta/Ej06.php" class="link-dark rounded">Ej 06</a></li>
-						<li><a href="/tema1/Introduccion_php_Emilio_Porta/Ej07.php" class="link-dark rounded">Ej 07</a></li>
-						<li><a href="/tema1/Introduccion_php_Emilio_Porta/Ej08.php" class="link-dark rounded">Ej 08</a></li>
-						<li><a href="/tema1/Introduccion_php_Emilio_Porta/Ej09.php" class="link-dark rounded">Ej 09</a></li>
-
-						<li><a href="/tema1/Introduccion_php_Emilio_Porta/Ej10.php" class="link-dark rounded">Ej 10</a></li>
-						<li><a href="/tema1/Introduccion_php_Emilio_Porta/Ej11.php" class="link-dark rounded">Ej 11</a></li>
-						<li><a href="/tema1/Introduccion_php_Emilio_Porta/Ej12.php" class="link-dark rounded">Ej 12</a></li>
-						<li><a href="/tema1/Introduccion_php_Emilio_Porta/Ej13.php" class="link-dark rounded">Ej 13</a></li>
-						<li><a href="/tema1/Introduccion_php_Emilio_Porta/Ej14.php" class="link-dark rounded">Ej 14</a></li>
+						<li><a href="/tema1/tienda.php" class="link-dark rounded">Tienda</a></li>
+						<br>
+						<p>---------------------------------------</p>
+						<br>
+						<li><a href="/tema1/Introduccion_php_Emilio_Porta/Ej01.php" class="link-dark rounded">Ejercicio 1</a></li>
+						<li><a href="/tema1/Introduccion_php_Emilio_Porta/Ej02.php" class="link-dark rounded">Ejercicio 2</a></li>
+						<li><a href="/tema1/Introduccion_php_Emilio_Porta/Ej03.php" class="link-dark rounded">Ejercicio 3</a></li>
+						<li><a href="/tema1/Introduccion_php_Emilio_Porta/Ej04.php" class="link-dark rounded">Ejercicio 4</a></li>
+						<li><a href="/tema1/Introduccion_php_Emilio_Porta/Ej05.php" class="link-dark rounded">Ejercicio 5</a></li>
+						<li><a href="/tema1/Introduccion_php_Emilio_Porta/Ej06.php" class="link-dark rounded">Ejercicio 6</a></li>
+						<li><a href="/tema1/Introduccion_php_Emilio_Porta/Ej07.php" class="link-dark rounded">Ejercicio 7</a></li>
+						<li><a href="/tema1/Introduccion_php_Emilio_Porta/Ej08.php" class="link-dark rounded">Ejercicio 8</a></li>
+						<li><a href="/tema1/Introduccion_php_Emilio_Porta/Ej09.php" class="link-dark rounded">Ejercicio 9</a></li>
+						<li><a href="/tema1/Introduccion_php_Emilio_Porta/Ej10.php" class="link-dark rounded">Ejercicio 10</a></li>
+						<li><a href="/tema1/Introduccion_php_Emilio_Porta/Ej11.php" class="link-dark rounded">Ejercicio 11</a></li>
+						<li><a href="/tema1/Introduccion_php_Emilio_Porta/Ej12.php" class="link-dark rounded">Ejercicio 12</a></li>
+						<li><a href="/tema1/Introduccion_php_Emilio_Porta/Ej13.php" class="link-dark rounded">Ejercicio 13</a></li>
+						<li><a href="/tema1/Introduccion_php_Emilio_Porta/Ej14.php" class="link-dark rounded">Ejercicio 14</a></li>
+						<br>
+						<p>---------------------------------------</p>
+						<br>
+						<li><a href="/tema1/Practica2_php_Emilio_Porta/Ej01.php" class="link-dark rounded">Ejercicio 1</a></li>
+						<li><a href="/tema1/Practica2_php_Emilio_Porta/Ej02.php" class="link-dark rounded">Ejercicio 2</a></li>
+						<li><a href="/tema1/Practica2_php_Emilio_Porta/Ej03.php" class="link-dark rounded">Ejercicio 3</a></li>
+						<li><a href="/tema1/Practica2_php_Emilio_Porta/Ej04.php" class="link-dark rounded">Ejercicio 4</a></li>
+						<li><a href="/tema1/Practica2_php_Emilio_Porta/Ej05.php" class="link-dark rounded">Ejercicio 5</a></li>
+						<li><a href="/tema1/Practica2_php_Emilio_Porta/Ej06.php" class="link-dark rounded">Ejercicio 6</a></li>
+						<li><a href="/tema1/Practica2_php_Emilio_Porta/Ej07.php" class="link-dark rounded">Ejercicio 7</a></li>
+						<li><a href="/tema1/Practica2_php_Emilio_Porta/Ej08.php" class="link-dark rounded">Ejercicio 8</a></li>
 					</ul>
 					</div>
 				</li>

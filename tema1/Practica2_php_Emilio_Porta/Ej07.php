@@ -14,8 +14,8 @@
             height: 150px;
         }
 
-        .row div {
-            grid-template-columns: repeat(4, 1fr);
+        .body div {
+            grid-template-columns: auto auto auto auto;
         }
     </style>
 </head>
@@ -43,9 +43,12 @@
 
     $novela = 0;
     $negra = 0;
+
+    echo "<h1>".strtoupper("Novela")."</h1>";
     foreach ($libreria as $valor) {
 
         if (strcmp($valor["categoria"], "novela") === 0 && $novela < 4) {
+            
             echo "<div class='card' style='width: 16rem;'>
                         <img src='" . $valor["foto"] . "' class='card-img-top' alt='...'>
                             <div class='card-body'>
@@ -61,6 +64,7 @@
         
     }
 
+    echo "<h1>".strtoupper($valor["categoria"])."</h1>";
     foreach($libreria as $otrovalor){
         if (strcmp($otrovalor["categoria"], "negra") === 0 && $negra < 4) {
             echo "<div class='card' style='width: 16rem;'>

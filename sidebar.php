@@ -7,10 +7,10 @@
 
 				<ul class="list-unstyled ps-0">
 				<li class="mb-1">
-					<button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse" data-bs-target="#tema1" aria-expanded="true">
+					<button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse" data-bs-target="#tema1" aria-expanded="false">
 					TEMA 1
 					</button>
-					<div class="collapse show" id="tema1">
+					<div class="collapse" id="tema1">
 					<ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
 						<li><a href="/tema1/eje1.php" class="link-dark rounded">Ejercicio 1</a></li>
 						<li><a href="/tema1/eje2.php" class="link-dark rounded">Ejercicio 2</a></li>
@@ -53,6 +53,8 @@
 					<div class="collapse" id="tema2">
 					<ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
 						<li><a href="/tema2/eje1.php" class="link-dark rounded">Ejercicio 1</a></li>
+						<li><a href="/tema2/Practica1_Emilio_Porta/login.php" class="link-dark rounded">Practica 1</a></li>
+						<li><a href="/tema2/Cookie_Emilio_Porta/index.php" class="link-dark rounded">Cookie</a></li>
 					</ul>
 					</div>
 				</li>

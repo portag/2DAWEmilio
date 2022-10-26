@@ -15,7 +15,7 @@ if (isset($_POST["accion"])) {
 
 
     if ($_POST["accion"] == "login") {
-
+       
 
         if (isset($_POST["email"])) {
             $_SESSION["useremail"] = $_POST["email"];

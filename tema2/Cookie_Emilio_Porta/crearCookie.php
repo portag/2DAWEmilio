@@ -1,48 +1,70 @@
 <?php
 
 //Si he pinchado en un link
-if (isset($_COOKIE["servidor"])) {
+if ($_GET) {
 
-    //Leemos lo que ya te gusta
-    $gustos = $_COOKIE['servidor'];
+    if (isset($_COOKIE["servidor"])) {
+            //Leemos lo que ya te gusta
+        $gustos = $_COOKIE['servidor'];
 
-    //Aquí desencriptas los datos
-    //-----
+        //Aquí desencriptas los datos
+        //-----
 
-    //Aquí habría que meter antes el contador de visitas.
-    //juegos-1#ropa-4
-    if (isset($_GET["interes"])) {
-        $gustos = $gustos . "#" . $_GET['interes'];
-        $dep = 0;
-        $jue = 0;
-        $mod = 0;
-        if ($_GET['interes'] == "deporte") {
-            $dep++;
-            echo '<script>window.location="' . "index.php" . '"</script>';
+        $clave  = 'dfhausflkanbaoretuiyhskjavbnadlisuth';
+        //Metodo de encriptaciÃ³n
+        $method = 'aes-256-cbc';
+        // Puedes generar una diferente usando la funcion $getIV()
+        $iv = base64_decode("C9fBxl1EWtYTL1/M8jfstw==");
+
+
+
+
+        //Separar los gustos y meterlos en un array
+        $gustosArray = explode("#", $gustos);
+
+        //CreacionCookie#moda-1#deportes-2
+        $encontrado = false;
+        for ($i = 1; $i < count($gustosArray); $i++) {
+
+            $gustoContadorArray = explode("-", $gustosArray[$i]);
+
+            if ($_GET['interes'] == $gustoContadorArray[0]) {
+                $gustoContadorArray[1]++;
+            }
+
+            $gustosArray[$i] = implode("-", $gustoContadorArray);
         }
 
-        if ($_GET['interes'] == "juegos") {
-            $jue++;
-            echo '<script>window.location="' . "index.php" . '"</script>';
-        }
+        //Volvemos a convertir a string ya quitados los duplicados
+        $gustosString = implode("#", $gustosArray);
 
-        if ($_GET['interes'] == "moda") {
-            $mod++;
-            echo '<script>window.location="' . "index.php" . '"</script>';
-        }
+
+        //Aquí encriptas los datos 
+        //-----
+
+
+
+        $encriptar = function ($valor) use ($method, $clave, $iv) {
+            return openssl_encrypt($valor, $method, $clave, false, $iv);
+        };
+
+        $gustosString = $encriptar($gustosString);
+
+        $desencriptar = function ($valor) use ($method, $clave, $iv) {
+            $encrypted_data = base64_decode($valor);
+            return openssl_decrypt($valor, $method, $clave, false, $iv);
+        };
+
+        $gustosString = $desencriptar($gustosString);
+
+
+
+        setcookie('servidor', $gustosString, time() + 60000, "/tema2", "localhost", false, true);
+        //echo "Cookie creada";
+    } else {
+        setcookie('servidor', "CreacionCookie#moda-0#deporte-0#juegos-0", time() + 60000, "/tema2", "localhost", false, true);
     }
 
-    //Separar los gustos y meterlos en un array
-    $gustosArray = explode("#", $gustos);
-    $gustosArray = array_unique($gustosArray);
 
-    //Volvemos a convertir a string ya quitados los duplicados
-    $gustosString = implode("#", $gustosArray);
-
-    //Aquí encriptas los datos 
-    //-----
-
-    setcookie('servidor', $gustosString, time());
-    //echo "Cookie creada";
-
+    header("Location: index.php");
 }

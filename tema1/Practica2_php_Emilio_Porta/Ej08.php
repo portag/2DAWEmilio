@@ -151,7 +151,6 @@
     }
 
 
-
     for ($i = 0; $i < count($clases); $i++) {
         tabla($clases[$i]);
         echo "<br>";

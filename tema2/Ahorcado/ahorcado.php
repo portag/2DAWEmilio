@@ -135,7 +135,7 @@ function reintentar()
                 echo "</div>";
 
                 echo "<div class='imagen'>";
-                echo "<img class ='prin' src=" . "imagenes/6.png" . ">";
+                echo "<img class ='prin' src=" . "./imagenes/6.png" . ">";
                 echo "</div>";
 
 
@@ -163,27 +163,27 @@ function reintentar()
     switch ($_SESSION["contador"]) {
         case 1:
             echo "<div class='imagen'>";
-            echo "<img class ='prin' src=" . "imagenes/1.png" . ">";
+            echo "<img class ='prin' src=" . "./imagenes/1.png" . ">";
             echo "</div>";
             break;
         case 2:
             echo "<div class='imagen'>";
-            echo "<img class ='prin' src=" . "imagenes/2.png" . ">";
+            echo "<img class ='prin' src=" . "./imagenes/2.png" . ">";
             echo "</div>";
             break;
         case 3:
             echo "<div class='imagen'>";
-            echo "<img class ='prin' src=" . "imagenes/3.png" . ">";
+            echo "<img class ='prin' src=" . "./imagenes/3.png" . ">";
             echo "</div>";
             break;
         case 4:
             echo "<div class='imagen'>";
-            echo "<img class ='prin' src=" . "imagenes/4.png" . ">";
+            echo "<img class ='prin' src=" . "./imagenes/4.png" . ">";
             echo "</div>";
             break;
         case 5:
             echo "<div class='imagen'>";
-            echo "<img class ='prin' src=" . "imagenes/5.png" . ">";
+            echo "<img class ='prin' src=" . "./imagenes/5.png" . ">";
             echo "</div>";
             break;
     }

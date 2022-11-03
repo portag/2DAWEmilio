@@ -135,7 +135,7 @@ function reintentar()
                 echo "</div>";
 
                 echo "<div class='imagen'>";
-                echo "<img class ='prin' src=" . "./imagenes/6.png" . ">";
+                echo "<img class ='prin' src=" . "./imagenes/6.jpg" . ">";
                 echo "</div>";
 
 

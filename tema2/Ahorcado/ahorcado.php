@@ -163,27 +163,27 @@ function reintentar()
     switch ($_SESSION["contador"]) {
         case 1:
             echo "<div class='imagen'>";
-            echo "<img class ='prin' src=" . "./imagenes/1.png" . ">";
+            echo "<img class ='prin' src=" . "./imagenes/1.jpg" . ">";
             echo "</div>";
             break;
         case 2:
             echo "<div class='imagen'>";
-            echo "<img class ='prin' src=" . "./imagenes/2.png" . ">";
+            echo "<img class ='prin' src=" . "./imagenes/2.jpg" . ">";
             echo "</div>";
             break;
         case 3:
             echo "<div class='imagen'>";
-            echo "<img class ='prin' src=" . "./imagenes/3.png" . ">";
+            echo "<img class ='prin' src=" . "./imagenes/3.jpg" . ">";
             echo "</div>";
             break;
         case 4:
             echo "<div class='imagen'>";
-            echo "<img class ='prin' src=" . "./imagenes/4.png" . ">";
+            echo "<img class ='prin' src=" . "./imagenes/4.jpg" . ">";
             echo "</div>";
             break;
         case 5:
             echo "<div class='imagen'>";
-            echo "<img class ='prin' src=" . "./imagenes/5.png" . ">";
+            echo "<img class ='prin' src=" . "./imagenes/5.jpg" . ">";
             echo "</div>";
             break;
     }

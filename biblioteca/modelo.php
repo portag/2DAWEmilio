@@ -128,15 +128,15 @@ function selectLibro()
 
 
 //actualizar la fecha inicio y fecha fin
-function updateFecha($inicio, $fin, $id)
+function updateFecha($estado, $fin, $id)
 {
 
     $conexion = conexionBD();
     $tareas = null;
 
     try {
-        $stmt = $conexion->prepare("UPDATE prestamos SET fechaIni = ?, fechaFin = ? WHERE id = ?");
-        $stmt->bindValue(1, $inicio);
+        $stmt = $conexion->prepare("UPDATE prestamos SET estado = ?, fechaFin = ? WHERE id = ?");
+        $stmt->bindValue(1, $estado);
         $stmt->bindValue(2, $fin);
         $stmt->bindValue(3, $id);
         $stmt->execute();

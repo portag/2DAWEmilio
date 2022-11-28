@@ -22,7 +22,7 @@ if (isset($_GET["accion"])) {
 
     //para actualizar las fechas
     if ($_GET["accion"] == "modificar") {
-        $ini=filtrado($_GET["ini"]);
+        $ini=filtrado($_GET["estado"]);
         $fin=filtrado($_GET["fin"]);
         $id=filtrado($_GET["id"]);
         updateFecha($ini,$fin,$id);

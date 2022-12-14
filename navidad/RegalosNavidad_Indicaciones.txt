@@ -1,0 +1,24 @@
+
+
+
+
+USUARIOS
+
+Nick - Emilio
+Email - emilio.com
+Clave - 1234
+
+Nick - Javi
+Email - javi.com
+Clave - 4321
+
+
+
+IMAGENES ENLACES
+
+Las imagenes se suben mediante un input type text, se encuentran en la carpeta imágenes,
+puedes añadir nuevas imagenes descargandolas en esa carpeta
+
+./imagenes/nombreFoto.jpg
+
+-Nombres: ps5, zapa, libro, juego, ropa, movil

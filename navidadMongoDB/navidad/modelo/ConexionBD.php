@@ -1,30 +1,31 @@
 <?php
 
-class ConexionBD {
+    require_once './vendor/autoload.php';
+    use MongoDB\Client;
 
-    private static $conexion;
+    class ConexionBD {
 
-    public static function conectar($bd="regalos", $usuario="root", $password="toor", $host="mariadb") {
+        private static $conexion;
 
-        try {
-            //LOCALHOST
-            $dsn = "mysql:host={$host};port=3306;dbname={$bd}";            
-            self::$conexion = new PDO($dsn, $usuario, $password);
-    
-    
-            self::$conexion->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_WARNING);
-        } catch (PDOException $e){
-            echo $e->getMessage();
-            echo self::$conexion->errorInfo();
+        public static function conectar($bd="regalos", $usuario="root", $password="toor", $host="mariadb") {
+
+            try {
+                //CONEXIÓN A MONGODB CLOUD ATLAS. Comentar esta línea para conectar en local.
+                //$host = "mongodb+srv://admin:evhT1Hu8ZasF8llx@cluster0.qmwhh.mongodb.net/".$database."?retryWrites=true&w=majority";
+                $host = "mongodb://root:toor@localhost:27017/?authMechanism=DEFAULT"; //MongoDB en Docker
+                self::$conexion = (new Client($host))->{$bd};
+            } catch (Exception $e){
+                echo $e->getMessage();
+            }
+            return self::$conexion;
+
         }
 
-        return self::$conexion;
+        public static function cerrar() {
+            self::$conexion = null;
+        }
+
 
     }
 
-    public static function cerrar() {
-        self::$conexion = null;
-    }
-
-
-}
+?>

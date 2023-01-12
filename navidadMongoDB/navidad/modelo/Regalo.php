@@ -12,7 +12,8 @@
         private $idUsuario;
 
 
-        public function __construct($nombre="", $destinatario="", $precio=0, $estado="", $anio=0, $idUsuario=0) {
+        public function __construct($id=0,$nombre="", $destinatario="", $precio=0, $estado="", $anio=0, $idUsuario=0) {
+        $this->id = $id;
             $this->nombre = $nombre;
             $this->destinatario = $destinatario;
             $this->precio = $precio;
@@ -165,5 +166,3 @@
                 return $this;
         }
     }
-
-?>

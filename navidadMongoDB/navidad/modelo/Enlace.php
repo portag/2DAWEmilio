@@ -11,7 +11,8 @@ class Enlace{
     private $idRegalo;
 
 
-    public function __construct($nombre="", $enlace="", $precio=0, $imagen="", $prioridad=0, $idRegalo=0) {
+    public function __construct($id=0,$nombre="", $enlace="", $precio=0, $imagen="", $prioridad=0, $idRegalo=0) {
+        $this->id = $id;
         $this->nombre = $nombre;
         $this->enlace = $enlace;
         $this->precio = $precio;

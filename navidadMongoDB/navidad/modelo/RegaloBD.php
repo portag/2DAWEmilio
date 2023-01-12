@@ -7,21 +7,19 @@ class RegaloBD{
 
         $conexion = ConexionBD::conectar();
 
-        $coleccion = $conexion->regalos;
-        //Consulta BBDD
-        $cursor = $coleccion->find(["idUsuario"=>$id]);
+            $coleccion = $conexion->regalos;
 
-        $regalos = array();
-        foreach($cursor as $regalo){
+            $regalos = $coleccion->find(["idUsuario"=>$id]);
 
-            $regalo_OBJ = new Regalo($regalo["id"],$regalo["nombre"],$regalo["destinatario"],$regalo["precio"],$regalo["estado"]
-            ,$regalo["anio"],$regalo["idUsuario"]);
-            array_push($regalos, $regalo_OBJ);
-        }
+            //Crear los objetos para devolverlos (MVC), Mongo me devuelve array asociativo
+            $arrRegalo = array();
+            foreach($regalos as $regalo) {
+               $regalo_OBJ = new Regalo($regalo['id'], $regalo['nombre'],$regalo['destinatario'],$regalo['precio'],$regalo['estado'],$regalo['anio'],$regalo['idUsuario']);
+               array_push($arrRegalo, $regalo_OBJ);
+            }
 
-        ConexionBD::cerrar();
-
-        return $regalos;
+            ConexionBD::cerrar();
+            return $arrRegalo;
     }
 
 
@@ -49,10 +47,10 @@ class RegaloBD{
             "id"=>intval($idValue+1),
             "nombre"=>$nombre,
             "destinatario"=>$destinatario,
-            "precio"=>$precio,
+            "precio"=>intval($precio),
             "estado"=>$estado,
-            "anio"=>$anio,
-            "idUsuario"=>$idUsuario
+            "anio"=>intval($anio),
+            "idUsuario"=>intval($idUsuario)
         ]);
 
         //Usamos FETCH_CLASS para que convierta a objetos las filas de la BD
@@ -63,10 +61,9 @@ class RegaloBD{
     public static function borrarRegalo($id) {
         $conexion = ConexionBD::conectar();
 
-        $deleteResult = $conexion->regalos->deleteOne(["id"=>intval(($id))]);
-       
-        ConexionBD::cerrar();
+        $deleteResult = $conexion->regalos->deleteOne((['id' => intVal($id)])); 
 
+        ConexionBD::cerrar();
     }
 
 
@@ -78,16 +75,13 @@ class RegaloBD{
         //UPDATE table_name
         //SET column1 = value1, column2 = value2, ...
         //WHERE condition;
-        $stmt = $conexion->prepare("UPDATE regalos SET nombre = ?, destinatario = ?, precio = ?, estado = ?, anio = ? WHERE  id = ?");
-        $stmt->bindValue(1, $nombre);
-        $stmt->bindValue(2, $destinatario);
-        $stmt->bindValue(3, $precio);
-        $stmt->bindValue(4, $estado);
-        $stmt->bindValue(5, $anio);
-        $stmt->bindValue(6, $idRegalo);
-
-
-        $stmt->execute();
+        $updateResult = $conexion->regalos->updateOne(
+            ["id"=>intVal($idRegalo)],
+            ['$set'=>["nombre"=>$nombre,
+                      "destinatario"=>$destinatario,
+                      "precio"=>intval($precio),
+                      "estado"=>$estado,
+                      "anio"=>intval($anio)]]);
 
         //Usamos FETCH_CLASS para que convierta a objetos las filas de la BD
 
@@ -98,19 +92,21 @@ class RegaloBD{
     public static function filtrarRegalo($anio) {
         $conexion = ConexionBD::conectar();
 
+        $coleccion = $conexion->regalos;
         //Consulta BBDD
-        $stmt = $conexion->prepare("SELECT * FROM regalos WHERE anio = ?");
+        $cursor = $coleccion->find(["anio"=>intval($anio)]);
 
-        $stmt->bindValue(1, $anio);
+        $regalos = array();
+        foreach($cursor as $regalo){
 
-        $stmt->execute();
-
-        //Usamos FETCH_CLASS para que convierta a objetos las filas de la BD
-        $regalitos = $stmt->fetchAll(PDO::FETCH_CLASS | PDO::FETCH_PROPS_LATE, 'Regalo');
+            $regalo_OBJ = new Regalo($regalo["id"],$regalo["nombre"],$regalo["destinatario"],$regalo["precio"],$regalo["estado"]
+            ,$regalo["anio"],$regalo["idUsuario"]);
+            array_push($regalos, $regalo_OBJ);
+        }
 
         ConexionBD::cerrar();
 
-        return $regalitos;
+        return $regalos;
     }
 
 

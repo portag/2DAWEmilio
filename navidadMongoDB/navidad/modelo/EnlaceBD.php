@@ -1,86 +1,87 @@
 <?php
-
-class EnlaceBD{
+class EnlaceBD
+{
 
     public static function getEnlaces($id){
 
         $conexion = ConexionBD::conectar();
 
-        //Consulta BBDD
-        $stmt = $conexion->prepare("SELECT * FROM enlaces WHERE idRegalo = ?");
+        $coleccion = $conexion->enlaces;
 
-        $stmt->bindValue(1, $id);
+        $enlaces = $coleccion->find(["idRegalo"=>$id]);
 
-        $stmt->execute();
-
-        //Usamos FETCH_CLASS para que convierta a objetos las filas de la BD
-        $enlaces = $stmt->fetchAll(PDO::FETCH_CLASS | PDO::FETCH_PROPS_LATE, 'Enlace');
+        //Crear los objetos para devolverlos (MVC), Mongo me devuelve array asociativo
+        $arrEnlace = array();
+        foreach($enlaces as $enlace) {
+           $enlace_OBJ = new Enlace($enlace['id'],$enlace['nombre'],$enlace['enlace'],$enlace['precio'],
+           $enlace['imagen'],$enlace['prioridad'], $enlace['idRegalo']);
+           array_push($arrEnlace, $enlace_OBJ);
+        }
 
         ConexionBD::cerrar();
-
-        return $enlaces;
+        return $arrEnlace;
     }
 
 
-    public static function insertarEnlace($nombre, $enlace, $precio, $imagen, $prioridad, $idRegalo){
+    public static function insertarEnlace($nombre, $enlace, $precio, $imagen, $prioridad, $idRegalo)
+    {
         $conexion = ConexionBD::conectar();
 
-        //Consulta BBDD
-        //UPDATE table_name
-        //SET column1 = value1, column2 = value2, ...
-        //WHERE condition;
-        $stmt = $conexion->prepare("INSERT INTO enlaces (nombre, enlace, precio, imagen, prioridad, idRegalo)
-    VALUES (?, ?, ?, ?, ?, ?)");
-        $stmt->bindValue(1, $nombre);
-        $stmt->bindValue(2, $enlace);
-        $stmt->bindValue(3, $precio);
-        $stmt->bindValue(4, $imagen);
-        $stmt->bindValue(5, $prioridad);
-        $stmt->bindValue(6, $idRegalo);
+        $enlaceMayor = $conexion->enlaces->findOne(
+            [],
+            [
+                "sort" => ["id" => -1],
+            ]
+            );
+        
+        if(isset($enlaceMayor)){
+            $idValue = $enlaceMayor["id"];
+        }else{
+            $idValue = 0;
+        }
 
-        $stmt->execute();
-
-        //Usamos FETCH_CLASS para que convierta a objetos las filas de la BD
+        $insertOneResult = $conexion->enlaces->insertOne([
+            "id"=>intval($idValue+1),
+            "nombre"=>$nombre,
+            "enlace"=>$enlace,
+            "precio"=>intval($precio),
+            "imagen"=>$imagen,
+            "prioridad"=>$prioridad,
+            "idRegalo"=>$idRegalo
+        ]);
 
         ConexionBD::cerrar();
     }
 
 
-    public static function borrarEnlace($id) {
+    public static function borrarEnlace($id)
+    {
         $conexion = ConexionBD::conectar();
 
-        //Consulta BBDD
-        $stmt = $conexion->prepare("DELETE FROM enlaces WHERE id  = ?");
+        $deleteResult = $conexion->enlaces->deleteOne((['id' => intVal($id)])); 
 
-        $stmt->bindValue(1, $id);
-
-        $stmt->execute();
-
-        //Usamos FETCH_CLASS para que convierta a objetos las filas de la BD
-       
         ConexionBD::cerrar();
-
     }
 
 
-    public static function ordenarEnlace($id){
+    public static function ordenarEnlace($id)
+    {
 
         $conexion = ConexionBD::conectar();
 
-        //Consulta BBDD
-        $stmt = $conexion->prepare("SELECT * FROM enlaces WHERE idRegalo = ? ORDER BY precio DESC");
+        $coleccion = $conexion->enlaces;
 
-        $stmt->bindValue(1, $id);
+        $enlaces = $coleccion->find(["idRegalo"=>$id],["sort"=>["precio"=>1]]);
 
-        $stmt->execute();
-
-        //Usamos FETCH_CLASS para que convierta a objetos las filas de la BD
-        $enlaces = $stmt->fetchAll(PDO::FETCH_CLASS | PDO::FETCH_PROPS_LATE, 'Enlace');
+        $arrEnlaces = array();
+        foreach($enlaces as $enlace) {
+           $enlace_OBJ = new Enlace($enlace['id'],$enlace['nombre'],$enlace['enlace'],$enlace['precio'],$enlace['imagen'],$enlace['prioridad'],$enlace['idRegalo']);
+           array_push($arrEnlaces, $enlace_OBJ);
+        }
 
         ConexionBD::cerrar();
 
-        return $enlaces;
+        return $arrEnlaces;
+
     }
-
-
 }

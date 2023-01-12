@@ -7,12 +7,11 @@ class UsuarioBD {
 
         $coleccion = $conexion->usuarios;
 
-        $usuario = $coleccion->findOne(["email"=>$email,"password"=>$password]);
+        $usuario = $coleccion->findOne(["email"=>$email,"password"=>$password]);      
 
         $usuarioOBJ= new Usuario($usuario["email"],$usuario["password"]);
         $usuarioOBJ->setId($usuario["id"]);
         $usuarioOBJ->setNick($usuario["nick"]);
-
 
         //Si no me devuelve ninguna fila el password es incorrecto
         if ($usuario == null) {
